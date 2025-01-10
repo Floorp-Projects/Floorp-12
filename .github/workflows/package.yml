@@ -83,7 +83,7 @@ jobs:
           echo "ac_add_options --enable-update-channel=alpha" >> mozconfig
           echo "ac_add_options --enable-artifact-builds" >> mozconfig
 
-          sed -i 's|MOZ_BRANDING_DIRECTORY=browser/branding/unofficial|MOZ_BRANDING_DIRECTORY=browser/branding/noraneko-unofficial|g' ./browser/confvars.sh
+          sed -i 's|MOZ_BRANDING_DIRECTORY=browser/branding/unofficial|MOZ_BRANDING_DIRECTORY=browser/branding/${{github.repository}}-unofficial|g' ./browser/confvars.sh
           sed -i 's|ac_add_options --enable-chrome-format=flat||g' ./mozconfig
 
           ./mach configure
