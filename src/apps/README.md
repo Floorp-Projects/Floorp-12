@@ -20,3 +20,6 @@
 - middleware-settings
   port:
   - 5192
+
+- search
+  port: 5193

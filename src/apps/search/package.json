@@ -1,0 +1,44 @@
+{
+  "name": "search",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "analyze": "vite build --analyze"
+  },
+  "type": "module",
+  "dependencies": {
+    "@chakra-ui/react": "^2.10.4",
+    "@chakra-ui/theme-tools": "^2.2.6",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "framer-motion": "^11.15.0",
+    "i18next": "^24.2.0",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
+    "jotai": "^2.11.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "react-i18next": "^15.2.0",
+    "react-router-dom": "^7.1.1",
+    "unplugin-auto-import": "^0.19.0",
+    "unplugin-icons": "^0.22.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "devDependencies": {
+    "@iconify-json/simple-icons": "^1.2.17",
+    "@iconify-json/streamline": "^1.2.2",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "rollup-plugin-visualizer": "^5.13.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.6",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}

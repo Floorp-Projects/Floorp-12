@@ -216,12 +216,19 @@ async function run(mode: "dev" | "test" | "release" = "dev") {
           cwd: r("./src/apps/settings"),
         })`pnpm dev`,
       );
+      devExecaProcesses.push(
+        execa({
+          preferLocal: true,
+          stdout: "inherit",
+          cwd: r("./src/apps/search"),
+        })`pnpm dev`,
+      );
       await execa({
         preferLocal: true,
         stdout: "inherit",
         cwd: r("./src/apps/modules"),
       })`pnpm genJarManifest`;
-  
+
       if (mode === "test") {
         devExecaProcesses.push(
           execa({
@@ -359,6 +366,11 @@ async function release(mode: "before" | "after") {
         configFile: r("./src/apps/settings/vite.config.ts"),
         root: r("./src/apps/settings"),
         base: "chrome://noraneko-settings/content"
+      }),
+      buildVite({
+        configFile: r("./src/apps/search/vite.config.ts"),
+        root: r("./src/apps/search"),
+        base: "chrome://floorp-search/content"
       }),
       buildVite({
         configFile: r("./src/apps/modules/vite.config.ts"),
