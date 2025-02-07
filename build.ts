@@ -70,6 +70,7 @@ async function decompressBin() {
     console.log(`decompressing ${binArchive}`);
     if (!(await isExists(binArchive))) {
       console.error(`${binArchive} not found`);
+      await downloadBinFromGitHub();
       process.exit(1);
     }
 
@@ -113,6 +114,15 @@ async function decompressBin() {
     console.error(e);
     process.exit(1);
   }
+}
+
+async function downloadBinFromGitHub() {
+  // Download from GitHub Actions
+  // Get the latest artifact from the latest successful workflow run
+  const repositryUrl = "https://github.com/Floorp-Projects/Floorp-12-runtime"
+  const latestRunUrl = `${repositryUrl}/actions/runs?event=push&status=success`;
+  const latestRunResponse = await fetch(latestRunUrl);
+  console.log(latestRunResponse);
 }
 
 async function initBin() {
@@ -388,6 +398,7 @@ async function release(mode: "before" | "after") {
 }
 
 import { v7 as uuidv7 } from "uuid";
+import { console } from "node:inspector";
 async function version() {
   await writeVersion(r("./gecko"));
   try {

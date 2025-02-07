@@ -35,7 +35,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     outputs:
-      run_id: ${{ github.run_id }}
+      runtime_artifact_workflow_run_id: ${{ github.run_id }}
     steps:
       - uses: actions/checkout@v4
         with:
