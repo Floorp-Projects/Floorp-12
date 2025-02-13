@@ -28,6 +28,11 @@ async function launchDev(mode:string,buildid2:string) {
       mode,
       configFile: r("./src/apps/settings/vite.config.ts"),
       root: r("./src/apps/settings"),
+    }),
+    await createServer({
+      mode,
+      configFile: r("./src/apps/search/vite.config.ts"),
+      root: r("./src/apps/search"),
     })
   ]
   for (const i of pDevVite) {

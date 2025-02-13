@@ -9,6 +9,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^2.10.4",
     "@chakra-ui/theme-tools": "^2.2.6",
     "@emotion/react": "^11.14.0",
@@ -24,6 +25,7 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
     "react-i18next": "^15.2.0",
+    "react-markdown": "^9.0.3",
     "react-router-dom": "^7.1.1",
     "unplugin-auto-import": "^0.19.0",
     "unplugin-icons": "^0.22.0",

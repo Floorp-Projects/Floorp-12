@@ -68,5 +68,11 @@ ${!isDev ? "\ncontent noraneko-settings settings/ contentaccessible=yes" : ""}`,
       `${binPath}/${dirName}/settings`,
       isWin ? "junction" : undefined,
     );
+
+    await fs.symlink(
+      path.relative(`${binPath}/${dirName}`, "./src/apps/search/_dist"),
+      `${binPath}/${dirName}/search`,
+      isWin ? "junction" : undefined,
+    );
   }
 }
