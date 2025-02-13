@@ -23,6 +23,7 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [websites, setWebsites] = useState([]);
+  const [files, setFiles] = useState([]);
 
   // AI Search states
   const [aiResult, setAiResult] = useState<any>(null);
@@ -85,9 +86,11 @@ function App() {
       const res = await fetch(`http://localhost:8080/v1/fast_search/${encodeURIComponent(searchQuery)}`);
       const data = await res.json();
       setWebsites(data.websites);
+      setFiles(data.local_files || []);
     } catch (error) {
       console.error("検索エラー:", error);
       setWebsites([]);
+      setFiles([]);
     }
     setHasSearched(true);
     setIsLoading(false);
@@ -207,6 +210,34 @@ function App() {
             </SimpleGrid>
           )
         ) : null}
+
+        {/* ローカルファイル検索結果 */}
+        {hasSearched && files.length > 0 && (
+          <Box mt={12}>
+            <Heading as="h2" size="xl" mb={4}>
+              ローカルファイル検索結果
+            </Heading>
+            {files.map((file: any, idx: number) => (
+              <Box
+                key={idx}
+                borderWidth="1px"
+                borderColor={borderColor}
+                borderRadius="lg"
+                overflow="hidden"
+                bg={bgColor}
+                p={4}
+                mb={4}
+              >
+                <Heading as="h3" size="md" mb={2}>
+                  {file.file_name}
+                </Heading>
+                <Text mb={2} fontSize="sm">
+                  {file.file_path}
+                </Text>
+              </Box>
+            ))}
+          </Box>
+        )}
 
         {/* AI Search 結果の表示 */}
         {hasSearched && (
