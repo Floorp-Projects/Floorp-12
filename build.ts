@@ -74,11 +74,13 @@ const binVersion = pathe.join(binDir, "nora.version.txt");
 
 async function decompressBin() {
   try {
-    console.log(`decompressing ${binArchive}`);
     if (!(await isExists(binArchive))) {
-      console.error(`${binArchive} not found`);
-      process.exit(1);
+      console.log(`${binArchive} not found. We will download ${await getBinArchive()} from GitHub latest release.`);
+      await downloadBinArchive();
+      return;
     }
+
+    console.log(`decompressing ${binArchive}`);
 
     if (process.platform === "win32") {
       //? windows
@@ -112,6 +114,19 @@ async function decompressBin() {
     console.error(e);
     process.exit(1);
   }
+}
+
+async function downloadBinArchive() {
+  const downloadUrl = `https://github.com/Floorp-Projects/Floorp-12-runtime/releases/latest/download/${await getBinArchive()}`;
+  console.log(`Downloading ${downloadUrl}`);
+  try {
+    await $`curl -L --progress-bar -o ${binArchive} ${downloadUrl}`;
+  } catch (error) {
+    console.error("Download failed:", error);
+    throw error;
+  }
+  console.log("Download complete!");
+  await decompressBin();
 }
 
 async function initBin() {
