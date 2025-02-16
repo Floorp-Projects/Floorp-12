@@ -228,9 +228,6 @@ async function run(mode: "dev" | "test" | "release" = "dev") {
         }
       })();
       await temp_prm;
-      await $`deno run -A ./scripts/launchDev/child-build.ts ${mode} ${
-        buildid2 ?? ""
-      }`;
 
       // env
       if (process.platform === "darwin") {
@@ -288,6 +285,12 @@ async function run(mode: "dev" | "test" | "release" = "dev") {
       process.stdout.write(temp);
     }
   })();
+  (async () => {
+    try {
+      await browserProcess;
+    } catch {}
+    exit();
+  })();
 }
 
 let runningExit = false;
@@ -296,7 +299,7 @@ async function exit() {
   runningExit = true;
   if (browserProcess) {
     console.log("[build] Start Shutdown browserProcess");
-    browserProcess.stdin.write("s");
+    browserProcess.stdin.write("q");
     try {
       await browserProcess;
     } catch (e) {
@@ -306,7 +309,7 @@ async function exit() {
   }
   if (devViteProcess) {
     console.log("[build] Start Shutdown devViteProcess");
-    devViteProcess.stdin.write("s");
+    devViteProcess.stdin.write("q");
     try {
       await devViteProcess;
     } catch (e) {

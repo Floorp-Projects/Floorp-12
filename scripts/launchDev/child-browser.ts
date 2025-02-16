@@ -11,7 +11,6 @@ chalk.level = 3;
 
 let logStatusForFollowingLine: "error" | "warn" | "info" | "debug" = "info";
 /**
- *
  * @param lines array of strings seperated by newlines (not includes newlines)
  */
 function printFirefoxLog(lines: string[]) {
@@ -105,26 +104,23 @@ let intendedShutdown = false;
 
 export async function runBrowser(port = 5180) {
   // https://wiki.mozilla.org/Firefox/CommandLineOptions
-  switch (process.platform) {
-    case "win32":
+  switch (Deno.build.os) {
+    case "windows":
       processBrowser =
-        $`./_dist/bin/${brandingBaseName}/${brandingBaseName}.exe --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`.stdio(
-          "pipe",
-        );
+        $`./_dist/bin/${brandingBaseName}/${brandingBaseName}.exe --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`
+          .stdio("pipe");
       break;
 
     case "linux":
       processBrowser =
-        $`./_dist/bin/${brandingBaseName}/${brandingBaseName} --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`.stdio(
-          "pipe",
-        );
+        $`./_dist/bin/${brandingBaseName}/${brandingBaseName} --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`
+          .stdio("pipe");
       break;
 
     case "darwin":
       processBrowser =
-        $`./_dist/bin/${brandingBaseName}/${brandingName}.app/Contents/MacOS/${brandingBaseName} --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`.stdio(
-          "pipe",
-        );
+        $`./_dist/bin/${brandingBaseName}/${brandingBaseName}.app/Contents/MacOS/${brandingBaseName} --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`
+          .stdio("pipe");
       break;
   }
 
@@ -167,19 +163,25 @@ export async function runBrowser(port = 5180) {
    */
   if (!intendedShutdown) {
     console.log("[child-browser] Browser Closed");
-    process.exit(0);
+    Deno.exit(0);
   }
 }
 
-{
-  //* main
-  process.stdin.on("data", async (d) => {
-    if (d.toString().startsWith("s")) {
-      console.log("[child-browser] Shutdown Browser");
-      intendedShutdown = true;
-      await processBrowser?.kill();
-      process.exit(1);
+{ //* main
+  const decoder = new TextDecoder();
+  (async () => {
+    for await (const chunk of Deno.stdin.readable) {
+      const text = decoder.decode(chunk);
+      if (text.startsWith("q")) {
+        console.log("[child-browser] Shutdown Browser");
+        intendedShutdown = true;
+        if (processBrowser != null) {
+          await processBrowser.kill();
+        }
+        Deno.exit(0);
+      }
     }
-  });
+  })();
+
   await runBrowser();
 }
