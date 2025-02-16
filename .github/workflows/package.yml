@@ -54,11 +54,6 @@ jobs:
         with:
           path: "floorp"
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: false
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -68,7 +63,7 @@ jobs:
 
           cd $GITHUB_WORKSPACE
           cd ./floorp
-          pnpm install
+          deno install --allow-scripts
           cd ..
 
       - name: Setup 🪛
@@ -80,7 +75,7 @@ jobs:
       - name: Write Versions
         run: |
           cd ./floorp
-          pnpm build --write-version
+          deno task build --write-version
           cd ..
 
       - name: Mach configure
@@ -218,7 +213,7 @@ jobs:
       - name: Build Floorp
         run: |
           cd ./floorp
-          NODE_ENV='production' pnpm build --release-build-before
+          NODE_ENV='production' deno task build --release-build-before
           cd ..
 
       - name: Build
@@ -234,7 +229,7 @@ jobs:
       - name: Inject Floorp
         run: |
           cd ./floorp
-          pnpm build --release-build-after
+          deno task build --release-build-after
 
           # https://www.spinics.net/lists/git/msg391750.html
           rsync -aL ../obj-artifact-build-output/dist/bin/ ../obj-artifact-build-output/dist/tmp__bin
@@ -257,7 +252,7 @@ jobs:
         if: ${{ env.RUNTIME_ARTIFACT_WORKFLOW_RUN_ID != 'false' }}
         uses: actions/download-artifact@v4
         with:
-          pattern: '*dist-host'
+          pattern: "*dist-host"
           run-id: ${{ env.RUNTIME_ARTIFACT_WORKFLOW_RUN_ID }}
           github-token: ${{github.token}}
           repository: Floorp-Projects/Floorp-12-runtime
@@ -274,7 +269,7 @@ jobs:
         if: ${{ env.RUNTIME_ARTIFACT_WORKFLOW_RUN_ID != 'false' }}
         uses: actions/download-artifact@v4
         with:
-          pattern: '*application-ini'
+          pattern: "*application-ini"
           run-id: ${{ env.RUNTIME_ARTIFACT_WORKFLOW_RUN_ID }}
           github-token: ${{github.token}}
           repository: Floorp-Projects/Floorp-12-runtime
