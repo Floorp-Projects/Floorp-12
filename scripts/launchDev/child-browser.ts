@@ -67,7 +67,7 @@ function printFirefoxLog(lines: string[]) {
 }
 
 import { type LogEntry, log } from "zx/core";
-import { brandingBaseName, brandingName } from "../../build";
+import { brandingBaseName, brandingName } from "../../build.ts";
 
 $.log = (entry: LogEntry) => {
   // if the buffer is null, the process is on exit.
@@ -119,7 +119,7 @@ export async function runBrowser(port = 5180) {
 
     case "darwin":
       processBrowser =
-        $`./_dist/bin/${brandingBaseName}/${brandingBaseName}.app/Contents/MacOS/${brandingBaseName} --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`
+        $`./_dist/bin/${brandingBaseName}/${brandingName}.app/Contents/MacOS/${brandingBaseName} --profile ./_dist/profile/test --remote-debugging-port ${port} --wait-for-browser --jsdebugger`
           .stdio("pipe");
       break;
   }
