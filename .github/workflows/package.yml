@@ -268,6 +268,29 @@ jobs:
 
           cd ..
 
+      - name: Sign Windows Binary - Publish Unsigned Core
+        id: publish-unsigned-core
+        if: inputs.platform == 'Windows-x64' && inputs.beta == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: floorp-windows-${{inputs.platform}}-package-unsigned-core
+          path: obj-artifact-build-output/dist/bin/
+
+      - name: Sign Windows Binary - Sign Core 🖊️
+        id: sign-core
+        if: inputs.platform == 'Windows-x64' && inputs.beta == 'false'
+        uses: signpath/github-action-submit-signing-request@v1.1
+        with:
+          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
+          organization-id: '3b13ba3b-8062-4df7-a4a6-217a5ec352c4'
+          project-slug: 'Floorp'
+          signing-policy-slug: 'release-signing'
+          artifact-configuration-slug: 'core-signing'
+          github-artifact-id: '${{ steps.publish-unsigned-core.outputs.artifact-id }}'
+          wait-for-completion-timeout-in-seconds: 7200
+          wait-for-completion: true
+          output-artifact-directory: obj-artifact-build-output/dist/bin/
+
       - name: Package noraneko
         run: |
           ./mach package
@@ -320,6 +343,29 @@ jobs:
               ~/mac-code-signing/new/$OUTPUT_INSTALLER_NAME
             mv ~/mac-code-signing/new/$OUTPUT_INSTALLER_NAME ~/noraneko-installer/$OUTPUT_INSTALLER_NAME
           fi
+
+      - name: Sign Windows Binary - Publish Unsigned Installer
+        id: publish-unsigned-installer
+        if: inputs.platform == 'Windows-x64' && inputs.beta == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: floorp-windows-${{inputs.platform}}-package-unsigned-installer
+          path: noraneko-installer/
+
+      - name: Sign Windows Binary - Sign Installer 🖊️
+        id: sign-installer
+        if: inputs.platform == 'Windows-x64' && inputs.beta == 'false'
+        uses: signpath/github-action-submit-signing-request@v1.1
+        with:
+          api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
+          organization-id: '3b13ba3b-8062-4df7-a4a6-217a5ec352c4'
+          project-slug: 'Floorp'
+          signing-policy-slug: 'release-signing'
+          artifact-configuration-slug: 'stub-signing'
+          github-artifact-id: '${{ steps.publish-unsigned-core.outputs.artifact-id }}'
+          wait-for-completion-timeout-in-seconds: 7200
+          wait-for-completion: true
+          output-artifact-directory: noraneko-installer/
 
       - name: Download artifact of MAR tools (Actions)
         if: ${{ env.RUNTIME_ARTIFACT_WORKFLOW_RUN_ID != 'false' }}
