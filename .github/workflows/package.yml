@@ -272,7 +272,7 @@ jobs:
         run: |
           sudo dpkg --add-architecture i386
           sudo apt update
-          sudo install wine winetricks wine32:i386 -y
+          sudo apt install -y wine winetricks wine32:i386
           curl -O https://github.com/electron/rcedit/releases/latest/download/rcedit-x64.exe
           wine rcedit-x64.exe ./obj-artifact-build-output/dist/bin/floorp.exe --set-icon ./browser/branding/floorp-daylight/firefox.ico
 
