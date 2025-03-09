@@ -270,9 +270,8 @@ jobs:
 
       - name: Replace RC Icon
         run: |
-          sudo dpkg --add-architecture i386
           sudo apt update
-          sudo apt install -y wine winetricks wine32:i386
+          sudo apt install -y wine winetricks
           curl -Lo ./rcedit-x64.exe https://github.com/electron/rcedit/releases/latest/download/rcedit-x64.exe
           wine ./rcedit-x64.exe ./obj-artifact-build-output/dist/bin/floorp.exe --set-icon ./browser/branding/floorp-daylight/firefox.ico
 
