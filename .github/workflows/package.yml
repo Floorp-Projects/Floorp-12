@@ -274,7 +274,8 @@ jobs:
           sudo apt update
           sudo apt install -y wine winetricks wine32:i386
           curl -O https://github.com/electron/rcedit/releases/latest/download/rcedit-x64.exe
-          wine rcedit-x64.exe ./obj-artifact-build-output/dist/bin/floorp.exe --set-icon ./browser/branding/floorp-daylight/firefox.ico
+          ls
+          wine ./rcedit-x64.exe ./obj-artifact-build-output/dist/bin/floorp.exe --set-icon ./browser/branding/floorp-daylight/firefox.ico
 
       - name: Sign Windows Binary - Publish Unsigned Core
         id: publish-unsigned-core
