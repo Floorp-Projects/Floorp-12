@@ -38,7 +38,9 @@ skin noraneko classic/1.0 skin/
 resource noraneko resource/ contentaccessible=yes
 ${
       mode !== "dev"
-        ? "\ncontent noraneko-settings settings/ contentaccessible=yes"
+        ? `\ncontent noraneko-settings settings/ contentaccessible=yes
+content noraneko-search search/ contentaccessible=yes
+        `
         : ""
     }`,
   );
@@ -77,6 +79,12 @@ ${
     await symlink(
       r("../../src/apps/settings/_dist"),
       `${binPath}/${dirName}/settings`,
+      option,
+    );
+
+    await symlink(
+      r("../../src/apps/search/_dist"),
+      `${binPath}/${dirName}/search`,
       option,
     );
   }

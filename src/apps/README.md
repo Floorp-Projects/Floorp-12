@@ -14,6 +14,9 @@
 - settings
   port: 5183
 
+- search
+  port: 5184
+
 - tests
   port: 5191
 

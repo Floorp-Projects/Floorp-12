@@ -59,6 +59,11 @@ async function launchBuild(mode: string, buildid2: string) {
         root: r("./src/apps/settings"),
         base: "chrome://noraneko-settings/content",
       }),
+      build({
+        configFile: r("./src/apps/search/vite.config.ts"),
+        root: r("./src/apps/search"),
+        base: "chrome://noraneko-search/content",
+      }),
     ]);
   }
 }
