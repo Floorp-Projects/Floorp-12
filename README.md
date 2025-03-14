@@ -1,41 +1,20 @@
 ## Welcome to Floorp Browser GitHub Repository 👋
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
+[![Contributors](https://img.shields.io/github/contributors/Floorp-Projects/Floorp.svg?style=for-the-badge)](https://github.com/Floorp-Projects/Floorp/graphs/contributors)
+[![Forks](https://img.shields.io/github/forks/Floorp-Projects/Floorp?style=for-the-badge)](https://github.com/Floorp-Projects/Floorp/network/members)
+[![Stars](https://img.shields.io/github/stars/Floorp-Projects/Floorp.svg?style=for-the-badge)](https://github.com/Floorp-Projects/Floorp/stargazers)
+[![Issues](https://img.shields.io/github/issues/Floorp-Projects/Floorp.svg?style=for-the-badge)](https://github.com/Floorp-Projects/Floorp/issues)
 [![Crowdin](https://badges.crowdin.net/floorp-browser/localized.svg)](https://crowdin.com/project/floorp-browser)
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/Floorp-Projects/Floorp.svg?style=for-the-badge
-[contributors-url]: https://github.com/Floorp-Projects/Floorp/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Floorp-Projects/Floorp?style=for-the-badge
-[forks-url]: https://github.com/Floorp-Projects/Floorp/network/members
-[stars-shield]: https://img.shields.io/github/stars/Floorp-Projects/Floorp.svg?style=for-the-badge
-[stars-url]: https://github.com/Floorp-Projects/Floorp/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Floorp-Projects/Floorp.svg?style=for-the-badge
-[issues-url]: https://github.com/Floorp-Projects/Floorp-Projects/issues
-[license-shield]: https://img.shields.io/github/license/Floorp-Projects/Floorp.svg?style=for-the-badge
-[license-url]: https://github.com/Floorp-Projects/Floorp/blob/master/LICENSE
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/Floorp-Projects/Floorp">
-    <img src="https://avatars.githubusercontent.com/u/94953125?s=200&v=4" alt="Logo" width="150" height="150">
-  </a>
-
-  <h3 align="center">Floorp Browser </h3>
-
+<p align="center">
+  <img src="https://avatars.githubusercontent.com/u/94953125?s=200&v=4" alt="Logo" width="150">
+  <h3 align="center">Floorp Browser</h3>
+  <p align="center">A Browser built for keeping the Open, Private and Sustainable Web alive. Based on Mozilla Firefox.
+  </p>
   <p align="center">
-       A Browser built for keeping the Open, Private and Sustainable Web alive. Based on Mozilla Firefox.
-    <br />
-    <br />
     <a href="https://floorp.app">Official Site</a>
     ・
-    <a href="#-download---install">Download</a>
+    <a href="#-download">Download</a>
     ・
     <a href="https://blog.ablaze.one/category/ablaze/ablaze-project/floorp/">Blog & Release Notes</a>
     ・
@@ -43,15 +22,20 @@
     ・
     <a href="https://docs.floorp.app">Documentation</a>
   </p>
-</div>
+</p>
 
-## 📄 Sponsorship
+## 🔥 Overview
 
-Floorp Browser is a free and open-source project. If you like Floorp Browser, please consider sponsoring us. Your sponsorship will help us to continue development and pay for the server costs. You may advertise if you continuously sponsor a minimum of $100 per month.
+Floorp is an open-source browser based on Mozilla Firefox that focuses on privacy, customization, and performance. It includes additional features not found in standard Firefox while maintaining compatibility with Firefox extensions.
+
+## 💰 Sponsorship
+
+Floorp Browser is free and open-source. Your sponsorship helps with development and server costs.
 
 - [GitHub Sponsors](https://github.com/sponsors/Ablaze-MIRAI)
+- Sponsors who contribute $100+ monthly are eligible for advertising opportunities
 
-<h2> 💕 Special Sponsors </h2>
+<h2>💕 Special Sponsors</h2>
 <div align="left" style="display: flex; flex-wrap: wrap;">
   <a href="https://www.cube-soft.jp/" style="margin: 10px; overflow: hidden; padding: 0px 30px;">
     <img src="https://avatars.githubusercontent.com/u/346808?s=200&v=4" alt="CubeSoft, Inc." width="100" height="100">
@@ -59,206 +43,113 @@ Floorp Browser is a free and open-source project. If you like Floorp Browser, pl
   </a>
 </div>
 
-## ⚡ Get Started
 
-### 💻 Supported Operating Systems & Requirements
+## 💻 System Requirements
 
-Floorp Browser is available for Windows, macOS, and Linux. You can install it by running the installer or by extracting the archive.
+### Windows
+
+- Windows 10 or later
+- x86_64 CPU architecture
+- Install options:
+  - Installer (exe)
+  - Winget: `winget install Ablaze.Floorp`
+
+### macOS
+
+- macOS 10.15 or later
+- x86_64 or ARM64 CPU
+- Install options:
+  - DMG installer
+  - Homebrew: `brew install --cask floorp`
+
+### Linux
+
+- x86_64 or AArch64 CPU
+- Distribution packages:
+  - PPA: `https://ppa.floorp.app`
+  - Flatpak: `https://flathub.org/apps/one.ablaze.floorp`
+  - AUR: `floorp-bin` or `floorp`
+  - Tarball available
+
+## 📥 Download
+
+- [Official Website](https://floorp.app/download)
+- [GitHub Releases](https://github.com/Floorp-Projects/Floorp-12/releases)
+
+## 🧰 Development
+
+### Getting Started
+
+1. Run `pnpm install`
+2. Run `pnpm build` to build or `pnpm dev` for debugging
+
+### Debugging
 
 #### Windows
 
-- Windows 10 or later. (Windows 7 and 8 are not supported)
-
-- x86_64 CPU architecture. AArch64 is not supported.
-
-- Floorp provides "exe" installer & "Winget" install.
-
-Winget install command:
-
-```
-winget install Ablaze.Floorp
-```
-
-Winget repository provided by [@Hibi_10000](https://github.com/Hibi-10000)
-
-**Floorp has obtained a Certum Open Source Code Signing Certificate. The official Floorp installer is signed by "Open Source Developer, Ryosuke Asano". However, the installer for the Daylight build is not signed.**
-
-#### macOS
-
-- macOS 10.15 or later.
-
-- x86_64 CPU & ARM64 CPU architecture. Floorp provides a Universal build for both architectures.
-
-Homebrew install command:
-
-```
-brew install --cask floorp
-```
-
-**After version 11.0.0, Floorp has obtained Apple Notarization & Certification. This means that you can install Floorp without any warning messages. Additionally, Floorp now includes an auto-update system.**
+1. Install [GitHub CLI](https://cli.github.com/)
+2. Visit [noraneko-runtime Action](https://github.com/nyanrus/noraneko-runtime/actions/workflows/wrapper_windows_build.yml)
+3. Go to latest successful build and check the id in url. This is the run_id (a number). The `Release` version is recommended.
+4. Download the runtime:
+   ```
+   gh run download -R nyanrus/noraneko-runtime -n noraneko-win-amd64-dev [run_id]
+   ```
+5. Run `pnpm dev`
 
 #### Linux
 
-- Debian-based distributions (such as Ubuntu and Linux Mint) and Arch-based distributions (such as Manjaro) are supported.
+1. Install GitHub CLI and lbzip2
+2. Visit [noraneko-runtime Action](https://github.com/nyanrus/noraneko-runtime/actions/workflows/wrapper_linux_build.yml)
+3. Go to latest successful build and check the id in url. This is the run_id (a number).
+4. Download the runtime:
+   ```
+   gh run download -R nyanrus/noraneko-runtime -n noraneko-linux-amd64-dev [run_id]
+   mkdir -p _dist/bin
+   tar --strip-components=1 -xvf ./noraneko-*.tar.bz2 -C _dist/bin
+   ```
+5. Run `pnpm dev`
 
-- x86_64 & AArch64 CPU architecture.
+## 🐛 Bug Reporting
 
-- Floorp Browser Requirements: ["Firefox Linux Requirements"](https://www.mozilla.org/en-US/firefox/128.0esr/system-requirements/#gnulinux)
+Found a bug? Report it on our [Issues page](https://github.com/Floorp-Projects/Floorp-12/issues).
 
-- List of supported package managers:
+## 📄 License
 
-```md
-1. PPA (Ubuntu, Linux Mint, etc.) "https://ppa.floorp.app"
+Floorp is licensed under the [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-2. Flatpak (Most Linux Distributions) "https://flathub.org/apps/one.ablaze.floorp"
+## ⚖️ Legal Information
 
-3. tarball (Most Linux Distributions) "https://GitHub.com/Floorp-Projects/Floorp/releases/latest"
+- Floorp name and logo are protected by copyright
+- Floorp is based on Mozilla Firefox but is not affiliated with Mozilla
 
-4. AUR bin (Arch-based Distributions) "https://aur.archlinux.org/packages/floorp-bin/" **Unofficial**
+## 📧 Contact
 
-5. AUR (Arch-based Distributions) "https://aur.archlinux.org/packages/floorp/" **Unofficial**
-```
-
-### 📥 Download & 📦 Install
-
-You can download the latest version of Floorp Browser from the official website: [Floorp.app](https://floorp.app/download) or from the [GitHub Releases](https://github.com/Floorp-Projects/Floorp/releases) page.
-
----
+- [Official Floorp Twitter](https://twitter.com/Floorp_Browser) or [Official Ablaze Twitter](https://twitter.com/Ablaze_MIRAI)
+- [Official Ablaze Community Discord Server](https://discord.com/invite/f8NFWjx6Rt)
+- [Official Support Site](https://support.ablaze.one)
 
 ## 📖 Documentation
 
-For more detailed information and guidance, check out our [Floorp Documentation Wiki](https://docs.floorp.app).
+Detailed information can be found in our [Documentation](https://docs.floorp.app).
 
-### 📝 License
-
-[Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
-
-- Floorp's name is a registered trademark of Floorp's developer, and Floorp's logo is protected by copyright
-
-- Floorp Browser is based on Mozilla Firefox. Floorp Browser is not affiliated with Mozilla & Mozilla Firefox.
-
-- Floorp uses Mozilla Firefox's source code and other open-source projects. See [Floorp License Notices](#📄-Floorp-License-Notices-📄)
-
-### 📧 Contact
-
-- [Official Floorp Twitter](https://twitter.com/Floorp_Browser) or [Official Ablaze Twitter](https://twitter.com/Ablaze_MIRAI)
-
-- [Official Ablaze Community Discord Server](https://discord.com/invite/f8NFWjx6Rt)
-
-### 📜 Privacy Policy
+## 📜 Privacy Policies
 
 - [Ablaze Privacy Policy](https://docs.ablaze.one/privacy_policy)
-
 - [Floorp Privacy Policy](https://docs.ablaze.one/floorp_privacy_policy)
 
-### 📜 About Forks
+## 🛠️ Open Source Components
 
-- Floorp is independent of Mozilla Firefox. Floorp is not affiliated with Mozilla & Mozilla Firefox.
+Floorp uses code from several open source projects, including:
 
-- We are also unaffiliated with the browser that is forking Floorp and we are developing it on our own.
+- Mozilla Firefox by [Mozilla & Contributors](https://www.mozilla.org/credits/) ([MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/)) - [Repository](https://github.com/mozilla/gecko-dev)
+- Noraneko by [NyanRus](https://github.com/nyanrus) ([MPL 2.0](https://github.com/nyanrus/noraneko-runtime/blob/main/LICENSE)) - [Repository](https://github.com/nyanrus/noraneko-runtime)
+- Firefox UI FIX (Lepton) by [black7375](https://github.com/black7375) ([MPL 2.0](https://github.com/black7375/Firefox-UI-Fix/blob/master/LICENSE)) - [Repository](https://github.com/black7375/Firefox-UI-Fix)
+- userChromeCSS Loader by Griever ([MIT](floorp/browser/base/content/browser-chromeCSS.js))
+- Paxmod by [numirias](https://github.com/numirias/) ([MIT](https://github.com/numirias/paxmod/blob/master/LICENSE)) - [Repository](https://github.com/numirias/paxmod)
+- showdown by [SyntaxRules](https://github.com/SyntaxRules) ([MIT](https://github.com/showdownjs/showdown/blob/master/LICENSE)) - [Repository](https://github.com/showdownjs/showdown)
+- Fushra Pulse by [Fushra](https://github.com/Fushra) ([MPL 2.0](https://github.com/pulse-browser/browser/blob/main/LICENSE)) - [Repository](https://github.com/pulse-browser/browser)
 
-- We are not affiliated with any organization other than Ablaze.
-
----
-
-## 🌟 Contributing
-
-### 🧰 How to Start Development
-
-1. Run `pnpm install`
-
-You can run `pnpm build` and `pnpm dev`.
-`pnpm build` outputs files, while `pnpm dev` is used for debugging the code with file watch.
-Refer to "How to Debug" for instructions on using `pnpm dev`.
-
-### 🧰 How to Debug
-
-#### Windows
-
-1. Install `gh cli` from [https://cli.github.com/]
-2. Visit [noraneko-runtime Action](https://github.com/nyanrus/noraneko-runtime/actions/workflows/wrapper_windows_build.yml).
-3. Go to latest successful build and check the id in url.
-   It is run_id and is number.
-   the `Release` version is recommended.
-4. Run `gh run download -R nyanrus/noraneko-runtime -n noraneko-win-amd64-dev [run_id]`
-5. Run `pnpm dev`.
-6. The browser will launch, and if you change some files, you could rerun `pnpm dev`.
-   If the source you changed supports HMR, it will reload the browser so you'll not need to rerun.
-
-#### GNU/Linux
-
-1. Install `gh cli` from [https://cli.github.com/] and `lbzip2` from your package manager.
-2. Visit [noraneko-runtime Action](https://github.com/nyanrus/noraneko-runtime/actions/workflows/wrapper_linux_build.yml).
-3. Go to latest successful build and check the id in url.
-   It is run_id and is number.
-4. Run `gh run download -R nyanrus/noraneko-runtime -n noraneko-linux-amd64-dev [run_id]`
-5. Run `mkdir -p _dist/bin`
-6. Run `tar --strip-components=1 -xvf ./noraneko-*.tar.bz2 -C _dist/bin`
-7. Run `pnpm dev`
-8. The browser will launch, and if you change some files, you could rerun `pnpm dev`.
-   If the source you changed supports HMR, it will reload the browser so you'll not need to rerun.
-
-### 🐛 Reporting Bugs
-
-- If you find a bug, please report it to the [Issues](https://github.com/Floorp-Projects/Floorp/issues) page.
-
----
-
-## 📄 Floorp License Notices 📄
-
-Floorp utilizes various open-source projects. Below is a comprehensive list of the open-source projects used in Floorp.
-
-Please note that while some of the software listed below is not included in Floorp itself, it is instead downloaded from the internet. Additionally, Floorp provides a list of recommended add-ons for users to install.
-
-### 🦊 Mozilla Firefox
-
-- [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
-- [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
-- Authors: [Mozilla & Contributors](https://www.mozilla.org/credits/)
-
-### 🐈 NyanRus Noraneko
-
-- [Noraneko](https://github.com/nyanrus/noraneko-runtime)
-- [Mozilla Public License 2.0](https://github.com/nyanrus/noraneko-runtime/blob/main/LICENSE)
-- Author: [NyanRus](https://github.com/nyanrus)
-
-### 🎨 Firefox UI FIX (Lepton)
-
-- [Firefox UI FIX (Lepton)](https://github.com/black7375/Firefox-UI-Fix)
-- [Mozilla Public License 2.0](https://github.com/black7375/Firefox-UI-Fix/blob/master/LICENSE)
-- Author: [black7375](https://github.com/black7375)
-
-### 📦 userChromeCSS Loader
-
-- [userChromeCSS Loader](floorp/browser/base/content/browser-chromeCSS.js)
-- [MIT](floorp/browser/base/content/browser-chromeCSS.js)
-- Author: Griever
-
-Notice: if you are a developer of "userChromeCSS Loader", please contact us so that we can add your name and website to the list.
-
-### 📦 Paxmod
-
-- [Paxmod](https://github.com/numirias/paxmod)
-- [MIT](https://github.com/numirias/paxmod/blob/master/LICENSE)
-- Author: [numirias](https://github.com/numirias/)
-
-Notice: Paxmod is used as reference material and for the multi-level tab implementation of vertical tabs.
-
-### 📦 showdown
-
-- [showdown](https://github.com/showdownjs/showdown)
-- [MIT](https://github.com/showdownjs/showdown/blob/master/LICENSE)
-- Author: [SyntaxRules](https://github.com/SyntaxRules)
-
-Notice: If you are a developer of "showdown" and your name is not listed, please contact us so that we can add your name and website to the list.
-
-### 📦 Fushra Pulse
-
-- [Fushra Pulse](https://pulsebrowser.app/)
-- [Mozilla Public License 2.0](https://github.com/pulse-browser/browser/blob/main/LICENSE)
-- Author: [Fushra](https://github.com/Fushra)
-
-## Repository View Counter
+## 📊 Repository View Counter
 
 <div align='center'><a href='https://www.websitecounterfree.com'><img src='https://www.websitecounterfree.com/c.php?d=9&id=38248&s=1' border='0' alt='Free Website Counter'></a><br/><small>
 <a href='https://www.websitecounterfree.com'>Free Website Counter: Since 2023 7/22</a></small></div>
