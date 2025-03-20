@@ -3,11 +3,18 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { createEffect, createMemo, createSignal, For, Match, Switch } from "solid-js";
-import { applyUserJS } from "./utils/userjs-parser";
+import {
+  createEffect,
+  createMemo,
+  createSignal,
+  For,
+  Match,
+  Switch,
+} from "solid-js";
+import { applyUserJS } from "./utils/userjs-parser.ts";
 import styleBrowser from "./browser.css?inline";
-import { config } from "./configs";
-import { getCSSFromConfig } from "./utils/css";
+import { config } from "./configs.ts";
+import { getCSSFromConfig } from "./utils/css.ts";
 
 export function BrowserDesignElement() {
   [100, 500].forEach((time) => {
@@ -17,7 +24,7 @@ export function BrowserDesignElement() {
   });
 
   const getCSS = createMemo(() => {
-    return getCSSFromConfig(config())
+    return getCSSFromConfig(config());
   });
 
   createEffect(() => {
@@ -25,16 +32,30 @@ export function BrowserDesignElement() {
     if (userjs) applyUserJS(userjs);
   });
 
-  let [devStyle,setDevStyle] = createSignal([] as string[]);
+  const [devStyle, setDevStyle] = createSignal([] as string[]);
 
   if (import.meta.env.DEV) {
-    createEffect(async ()=>{
-      let arr = [];
-      for (const link of getCSS().styles) {
-        arr.push((await import(/* @vite-ignore */`${link}?raw`)).default)
+    createEffect(async () => {
+      const arr: string[] = [];
+      const styles = getCSS().styles;
+      if (!styles.length) return;
+
+      const rawPath = styles[0].replace("css/leptonChrome.css", "icons");
+      const iconsDirPath = rawPath.startsWith("/@fs/")
+        ? `file://${rawPath.slice(4)}`
+        : `/src/${rawPath}`;
+      console.log(iconsDirPath);
+      for (const link of styles) {
+        arr.push(
+          (await import(/* @vite-ignore */ `${link}?raw`)).default.replaceAll(
+            "../icons",
+            iconsDirPath,
+          ),
+        );
       }
-      setDevStyle(arr)
-    })
+
+      setDevStyle(arr);
+    });
   }
 
   return (
@@ -44,16 +65,16 @@ export function BrowserDesignElement() {
           <For each={getCSS().styles}>
             {(style) => (
               <link
-              class="nora-designs"
-              rel="stylesheet"
-              href={ `${style}`}
-            />
+                class="nora-designs"
+                rel="stylesheet"
+                href={`${style}`}
+              />
             )}
           </For>
         </Match>
         <Match when={import.meta.env.DEV}>
           <For each={devStyle()}>
-            {(style)=>(
+            {(style) => (
               <style>
                 {style}
               </style>

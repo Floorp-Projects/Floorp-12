@@ -6,15 +6,19 @@ import {
 } from "../common/defines.ts";
 
 export class NRSettingsChild extends JSWindowActorChild {
-  rpc;
+  rpc: ReturnType<typeof createBirpc> | null = null;
   constructor() {
     super();
   }
   actorCreated() {
     console.debug("NRSettingsChild created!");
     const window = this.contentWindow;
-    if (window?.location.port === "5183") {
-      console.debug("NRSettingsChild 5183!");
+    if (
+      window?.location.port === "5183" ||
+      window?.location.port === "5186" ||
+      window?.location.href.startsWith("chrome://")
+    ) {
+      console.debug("NRSettingsChild 5183 ! or Chrome Page!");
       Cu.exportFunction(this.NRSPing.bind(this), window, {
         defineAs: "NRSPing",
       });

@@ -8,6 +8,8 @@ import {
 import { Switch } from "@/components/common/switch.tsx";
 import { useTranslation } from "react-i18next";
 import { useFormContext } from "react-hook-form";
+import { InfoTip } from "@/components/common/infotip.tsx";
+import { ExternalLink, Settings } from "lucide-react";
 
 export function BasicSettings() {
   const { t } = useTranslation();
@@ -16,30 +18,36 @@ export function BasicSettings() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{t("workspaces.basicSettings")}</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <Settings className="size-5" />
+          {t("workspaces.basicSettings")}
+        </CardTitle>
         <CardDescription>
           <a
             href="https://docs.floorp.app/docs/features/how-to-use-workspaces"
-            className="text-[var(--link-text-color)] hover:underline"
+            className="text-[var(--link-text-color)] hover:underline inline-flex items-center gap-2"
           >
             {t("workspaces.howToUseAndCustomize")}
+            <ExternalLink className="size-4" />
           </a>
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         <div>
-          <h3 className="text-base font-medium mb-2">
-            {t("workspaces.enableOrDisable")}
-          </h3>
-          <div className="space-y-4">
+          <div className="mb-2 inline-flex items-center gap-2">
+            <h3 className="text-base font-medium">
+              {t("workspaces.enableOrDisable")}
+            </h3>
+            <InfoTip
+              description={t("workspaces.enableWorkspacesDescription")}
+            />
+          </div>
+          <div className="space-y-1">
             <div className="flex items-center justify-between gap-2">
               <div className="space-y-1">
                 <label htmlFor="enable-workspaces">
                   {t("workspaces.enableWorkspaces")}
                 </label>
-                <p className="text-sm text-base-content/70">
-                  {t("workspaces.enableWorkspacesDescription")}
-                </p>
               </div>
               <Switch
                 id="enable-workspaces"
@@ -53,10 +61,7 @@ export function BasicSettings() {
           </div>
         </div>
 
-        <hr className="my-4" />
-
-        <div></div>
-        <h3 className="text-base font-medium mb-4">
+        <h3 className="text-base font-medium">
           {t("workspaces.otherSettings")}
         </h3>
         <div className="space-y-3">

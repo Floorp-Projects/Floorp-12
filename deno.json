@@ -4,7 +4,8 @@
   ],
   "workspace": [
     "./src/packages/*",
-    "./src/apps/*"
+    "./src/apps/*",
+    "./src/apps/main/core/utils/modal-child"
   ],
   "imports": {
     "@std/encoding": "jsr:@std/encoding@^1.0.7",
@@ -19,6 +20,13 @@
       "deno.ns",
       "ESNext"
     ]
+  },
+  "lint": {
+    "rules": {
+      "exclude": [
+        "no-namespace"
+      ]
+    }
   },
   "unstable": [
     "sloppy-imports"

@@ -8,15 +8,16 @@ if (Deno.build.os === "windows") {
 }
 
 let pDevVite: ViteDevServer[] = [];
-let pSettings: ProcessPromise | null = null;
-
-let worker: Worker | null = null;
+const workers: Worker[] = [];
 
 const r = (value: string): string => {
-  return resolve(import.meta.dirname, "../..", value);
+  return resolve(import.meta.dirname as string, "../..", value);
 };
 
 async function launchDev(mode: string, buildid2: string) {
+  const rootDir = resolve(import.meta.dirname as string, "../..");
+  console.log(`[child-dev] Root directory: ${rootDir}`);
+
   pDevVite = [
     await createServer({
       mode,
@@ -27,19 +28,29 @@ async function launchDev(mode: string, buildid2: string) {
         "import.meta.env.__VERSION2__": `"${packageJson.version}"`,
       },
     }),
-    await createServer({
-      mode,
-      configFile: r("./src/apps/designs/vite.config.ts"),
-      root: r("./src/apps/designs"),
-    }),
   ];
 
-  worker = new Worker(
-    new URL("./workers/dev-settings.ts", import.meta.url).href,
-    {
-      type: "module",
-    },
-  );
+  const workersDir = resolve(import.meta.dirname as string, "workers");
+
+  try {
+    for await (const entry of Deno.readDir(workersDir)) {
+      if (entry.isFile && entry.name.startsWith("dev-")) {
+        const workerUrl =
+          new URL(`./workers/${entry.name}`, import.meta.url).href;
+        console.log(`[child-dev] Starting worker: ${entry.name}`);
+
+        const worker = new Worker(workerUrl, {
+          type: "module",
+        });
+
+        worker.postMessage({ type: "setRootDir", rootDir });
+        workers.push(worker);
+      }
+    }
+  } catch (err: unknown) {
+    const error = err as Error;
+    console.error(`[child-dev] Error loading workers: ${error.message}`);
+  }
 
   for (const i of pDevVite) {
     await i.listen();
@@ -52,10 +63,11 @@ async function shutdownDev() {
   for (const i of pDevVite) {
     await i.close();
   }
-  if (worker) {
-    worker.postMessage("");
+
+  for (const worker of workers) {
+    worker.postMessage({ type: "shutdown" });
   }
-  // await pSettings!.kill("SIGABRT")
+
   console.log("[child-dev] Completed Shutdown ViteDevServer✅");
 }
 

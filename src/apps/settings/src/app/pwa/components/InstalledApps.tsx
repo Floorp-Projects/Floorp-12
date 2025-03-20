@@ -12,6 +12,7 @@ import {
   renamePwaApp,
   uninstallPwaApp,
 } from "../dataManager.ts";
+import { LayoutGrid } from "lucide-react";
 
 export function InstalledApps() {
   const { t } = useTranslation();
@@ -21,8 +22,12 @@ export function InstalledApps() {
   const [selectedApp, setSelectedApp] = useState<InstalledApp | null>(null);
   const [newName, setNewName] = useState("");
   const [error, setError] = useState<string>("");
-  const renameDialogRef = useRef<HTMLDialogElement>(null);
-  const uninstallDialogRef = useRef<HTMLDialogElement>(null);
+  const renameDialogRef = useRef<HTMLDialogElement>(null) as React.RefObject<
+    HTMLDialogElement
+  >;
+  const uninstallDialogRef = useRef<HTMLDialogElement>(null) as React.RefObject<
+    HTMLDialogElement
+  >;
 
   const fetchApps = async () => {
     try {
@@ -62,8 +67,10 @@ export function InstalledApps() {
     try {
       await renamePwaApp(selectedApp.id, newName);
       renameDialogRef.current?.close();
-      await fetchApps();
       setError("");
+      setTimeout(() => {
+        fetchApps();
+      }, 1000);
     } catch (e) {
       setError(t("progressiveWebApp.errorRenaming"));
       console.error("Error renaming app:", e);
@@ -76,8 +83,10 @@ export function InstalledApps() {
     try {
       await uninstallPwaApp(selectedApp.id);
       uninstallDialogRef.current?.close();
-      await fetchApps();
       setError("");
+      setTimeout(() => {
+        fetchApps();
+      }, 1000);
     } catch (e) {
       setError(t("progressiveWebApp.errorUninstalling"));
       console.error("Error uninstalling app:", e);
@@ -93,7 +102,10 @@ export function InstalledApps() {
     <>
       <Card>
         <CardHeader>
-          <CardTitle>{t("progressiveWebApp.installedApps")}</CardTitle>
+          <CardTitle className="flex items-center gap-2">
+            <LayoutGrid className="size-5" />
+            {t("progressiveWebApp.installedApps")}
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {error && <p className="text-error mb-4">{error}</p>}

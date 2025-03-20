@@ -2,6 +2,7 @@ import { resolve } from "pathe";
 import { build } from "vite";
 import packageJson from "../../package.json" with { type: "json" };
 import { $, usePwsh } from "zx";
+import process from "node:process";
 
 switch (process.platform) {
   case "win32":
@@ -9,7 +10,7 @@ switch (process.platform) {
 }
 
 const r = (value: string): string => {
-  return resolve(import.meta.dirname, "../..", value);
+  return resolve(import.meta.dirname as string, "../..", value);
 };
 
 async function launchBuild(mode: string, buildid2: string) {
@@ -25,8 +26,8 @@ async function launchBuild(mode: string, buildid2: string) {
         },
       }),
       build({
-        configFile: r("./src/apps/designs/vite.config.ts"),
-        root: r("./src/apps/designs"),
+        configFile: r("./src/apps/newtab/vite.config.ts"),
+        root: r("./src/apps/newtab"),
       }),
     ]);
   } else {
@@ -51,13 +52,19 @@ async function launchBuild(mode: string, buildid2: string) {
         base: "resource://noraneko",
       }),
       build({
-        configFile: r("./src/apps/designs/vite.config.ts"),
-        root: r("./src/apps/designs"),
+        configFile: r("./src/apps/newtab/vite.config.ts"),
+        root: r("./src/apps/newtab"),
+        base: "chrome://noraneko-newtab/content",
       }),
       build({
         configFile: r("./src/apps/settings/vite.config.ts"),
         root: r("./src/apps/settings"),
         base: "chrome://noraneko-settings/content",
+      }),
+      build({
+        configFile: r("./src/apps/main/core/utils/modal-child/vite.config.ts"),
+        root: r("./src/apps/main/core/utils/modal-child"),
+        base: "chrome://noraneko-modal-child/content",
       }),
     ]);
   }

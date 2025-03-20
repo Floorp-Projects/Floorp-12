@@ -30,17 +30,26 @@ export async function injectManifest(
 
   await ensureDir(`${binPath}/${dirName}`);
 
-  await Deno.writeTextFile(
-    `${binPath}/${dirName}/noraneko.manifest`,
-    `content noraneko content/ contentaccessible=yes
+  const baseManifestContent = `
+content noraneko content/ contentaccessible=yes
 content noraneko-startup startup/ contentaccessible=yes
 skin noraneko classic/1.0 skin/
 resource noraneko resource/ contentaccessible=yes
-${
-      mode !== "dev"
-        ? "\ncontent noraneko-settings settings/ contentaccessible=yes"
-        : ""
-    }`,
+`;
+
+  const prodOnlyContent = `
+content noraneko-settings settings/ contentaccessible=yes
+content noraneko-modal-child modal-child/ contentaccessible=yes
+content noraneko-newtab newtab/ contentaccessible=yes
+`;
+
+  const manifestContent = mode !== "dev"
+    ? `${baseManifestContent}${prodOnlyContent}`
+    : baseManifestContent;
+
+  await Deno.writeTextFile(
+    `${binPath}/${dirName}/noraneko.manifest`,
+    manifestContent,
   );
 
   const r = (v: string) => {
@@ -63,8 +72,8 @@ ${
     option,
   );
   await symlink(
-    r("../../src/apps/designs/_dist"),
-    `${binPath}/${dirName}/skin`,
+    r("../../src/apps/newtab/_dist"),
+    `${binPath}/${dirName}/newtab`,
     option,
   );
   await symlink(
@@ -77,6 +86,11 @@ ${
     await symlink(
       r("../../src/apps/settings/_dist"),
       `${binPath}/${dirName}/settings`,
+      option,
+    );
+    await symlink(
+      r("../../src/apps/main/core/utils/modal-child/_dist"),
+      `${binPath}/${dirName}/modal-child`,
       option,
     );
   }
