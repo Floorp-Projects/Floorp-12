@@ -1,0 +1,92 @@
+/* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#tabs-grid > image {
+  display: none;
+}
+
+#tabs-grid > label {
+  padding-top: calc(var(--toolbarbutton-inner-padding) - 3px);
+  display: block;
+  min-width: 32px;
+  border: solid;
+  border-radius: 15%;
+  border-width: 2px;
+}
+
+#tabGridContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+  overflow: auto;
+  height: 500px;
+  margin: 10px;
+}
+
+.gridContent {
+  border-radius: 0 0 2% 2%;
+}
+
+.gridTitle > .closeTab {
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  margin-left: 5px;
+  border-radius: 10%;
+}
+
+.gridTitle > .closeTab:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--toolbox-textcolor) 10%,
+    transparent
+  );
+}
+
+.tabGridItem {
+  display: flex;
+  flex-flow: column;
+  background-color: var(--toolbox-bgcolor);
+  box-shadow: 5px 5px 10px var(--toolbox-bgcolor);
+  border-radius: 2%;
+}
+
+.tabGridItem:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--toolbox-textcolor) 5%,
+    transparent
+  );
+  box-shadow: 10px 10px 10px var(--toolbox-bgcolor);
+}
+
+.gridTitle > .titleText {
+  margin-left: 10px;
+}
+
+.tabGridItem > .gridTitle {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: left;
+}
+
+.closeAnim {
+  animation-name: closeTabAnimation;
+  animation-duration: 100ms;
+}
+
+@keyframes closeTabAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
