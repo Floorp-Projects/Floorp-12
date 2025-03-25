@@ -26,8 +26,7 @@ export const languageMappings: Record<string, string> = {
   "nl": "nl-NL",
   "pl": "pl-PL",
   "ko": "ko-KR",
-  "ja-jp": "ja",
-  "ja-JP": "ja",
+  "ja": "ja-JP",
 };
 
 export function initI18N() {
