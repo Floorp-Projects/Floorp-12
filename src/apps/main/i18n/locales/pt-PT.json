@@ -1,124 +1,124 @@
 {
     "undo-closed-tab": {
-        "label": "Undo Closed Tab",
-        "tooltiptext": "Reopen the last closed tab {{shortcut}}"
+        "label": "Anular separador fechado",
+        "tooltiptext": "Reabrir o último separador fechado {{shortcut}}"
     },
     "workspaces": {
         "modal": {
-            "name": "Name",
-            "name-placeholder": "Enter a name for this workspace",
-            "container": "Container",
-            "no-container": "No Container",
-            "icon": "Icon",
-            "edit-title": "Edit Workspace",
-            "save": "Save Changes",
-            "cancel": "Cancel"
+            "name": "Nome",
+            "name-placeholder": "Introduzir um nome para este espaço de trabalho",
+            "container": "Recipiente",
+            "no-container": "Sem recipiente",
+            "icon": "Ícone",
+            "edit-title": "Editar Espaço de Trabalho",
+            "save": "Guardar Alterações",
+            "cancel": "Cancelar"
         },
         "icons": {
-            "article": "Article",
-            "book": "Book",
-            "briefcase": "Briefcase",
-            "cart": "Shopping Cart",
-            "chat": "Chat",
-            "chill": "Chill",
-            "circle": "Circle",
-            "compass": "Compass",
-            "code": "Code",
-            "dollar": "Dollar",
-            "fence": "Fence",
-            "fingerprint": "Fingerprint",
-            "food": "Food",
-            "fruit": "Fruit",
-            "game": "Game",
-            "gear": "Settings",
-            "gift": "Gift",
-            "key": "Key",
-            "lightning": "Lightning",
-            "network": "Network",
-            "notes": "Notes",
-            "paint": "Paint",
-            "photo": "Photo",
-            "pin": "Pin",
-            "pet": "Pet",
-            "question": "Question",
+            "article": "Artigo",
+            "book": "Livro",
+            "briefcase": "Pasta",
+            "cart": "Carrinho de Compras",
+            "chat": "Conversa",
+            "chill": "Descontrair",
+            "circle": "Círculo",
+            "compass": "Bússola",
+            "code": "Código",
+            "dollar": "Dólar",
+            "fence": "Vedação",
+            "fingerprint": "Impressão digital",
+            "food": "Comida",
+            "fruit": "Fruta",
+            "game": "Jogo",
+            "gear": "Definições",
+            "gift": "Prenda",
+            "key": "Chave",
+            "lightning": "Relâmpagos",
+            "network": "Rede",
+            "notes": "Notas",
+            "paint": "Pintura",
+            "photo": "Fotografia",
+            "pin": "Afixar",
+            "pet": "Animal de estimação",
+            "question": "Questão",
             "smartphone": "Smartphone",
-            "star": "Star",
-            "tree": "Tree",
-            "vacation": "Vacation",
-            "love": "Love",
-            "moon": "Moon",
-            "music": "Music",
-            "user": "User"
+            "star": "Adicionar aos Favoritos",
+            "tree": "Árvore",
+            "vacation": "Férias",
+            "love": "Amor",
+            "moon": "Lua",
+            "music": "Música",
+            "user": "Utilizador"
         },
         "service": {
-            "new-workspace": "New Workspace ({{count}})"
+            "new-workspace": "Novo Espaço de Trabalho ({{count}})"
         },
         "context-menu": {
-            "move-up": "Move this Workspace Up",
-            "move-down": "Move this Workspace Down",
-            "delete": "Delete Workspace",
-            "manage": "Manage Workspace"
+            "move-up": "Mover este Espaço de Trabalho para cima",
+            "move-down": "Mover este Espaço de Trabalho para baixo",
+            "delete": "Eliminar Espaço de Trabalho",
+            "manage": "Gerir o Espaço de Trabalho"
         },
         "popup": {
-            "create-new": "Create New Workspace...",
-            "manage": "Manage Workspaces"
+            "create-new": "Criar um Espaço de Trabalho...",
+            "manage": "Gerir Espaços de Trabalho"
         }
     },
     "statusbar": {
-        "toggle": "Status Bar{{mark}}"
+        "toggle": "Barra de Estado{{mark}}"
     },
     "splitview": {
-        "title": "Split View",
-        "position": "Position",
-        "position-left": "Left",
-        "position-right": "Right",
-        "flex-row": "Row",
-        "flex-column": "Column",
-        "remove-button": "Remove Current View",
+        "title": "Vista Dividida",
+        "position": "Posição",
+        "position-left": "Esquerda",
+        "position-right": "Direita",
+        "flex-row": "Fila",
+        "flex-column": "Coluna",
+        "remove-button": "Remover vista atual",
         "tab-context": {
-            "split-tabs": "Split Tabs",
-            "split-fixed-tab": "Split to Fixed Tab"
+            "split-tabs": "Separadores Divididos",
+            "split-fixed-tab": "Dividir em separador fixo"
         }
     },
     "ssb": {
         "menu": {
-            "webapps": "Web Apps",
-            "install-current": "Install Current Page as Progressive Web App",
-            "open-installed": "Open Installed Apps"
+            "webapps": "Aplicações Web",
+            "install-current": "Instalar a página atual como Aplicação Web Progressiva",
+            "open-installed": "Abrir aplicações instaladas"
         },
         "page-action": {
-            "title": "Open Application",
-            "install": "Install Application",
-            "open": "Open Application",
-            "cancel": "Cancel",
-            "site-icon": "Site icon",
-            "installing": "Installing indicator"
+            "title": "Abrir aplicação",
+            "install": "Instalar a aplicação",
+            "open": "Abrir aplicação",
+            "cancel": "Cancelar",
+            "site-icon": "Ícone do sítio",
+            "installing": "Instalação do indicador"
         }
     },
     "privateContainer": {
-        "openInPrivateContainer": "Open in Private Container",
-        "name": "Private Container"
+        "openInPrivateContainer": "Abrir num recipiente privado",
+        "name": "Recipiente privado"
     },
     "mouseGesture": {
         "actions": {
-            "goBack": "Back",
-            "goForward": "Forward",
-            "reload": "Reload",
-            "closeTab": "Close Tab",
-            "newTab": "New Tab",
-            "duplicateTab": "Duplicate Tab",
-            "reloadAllTabs": "Reload All Tabs",
-            "reopenClosedTab": "Reopen Closed Tab"
+            "goBack": "Voltar",
+            "goForward": "Avançar",
+            "reload": "Recarregar",
+            "closeTab": "Fechar separador",
+            "newTab": "Novo separador",
+            "duplicateTab": "Duplicar Separador",
+            "reloadAllTabs": "Recarregar todos os separadores",
+            "reopenClosedTab": "Reabrir separador fechado"
         },
         "descriptions": {
-            "goBack": "Navigate back to the previous page",
-            "goForward": "Navigate forward to the next page",
-            "reload": "Reload the current page",
-            "closeTab": "Close the current tab",
-            "newTab": "Open a new tab",
-            "duplicateTab": "Duplicate the current tab",
-            "reloadAllTabs": "Reload all tabs",
-            "reopenClosedTab": "Reopen the last closed tab"
+            "goBack": "Navegar de volta para a página anterior",
+            "goForward": "Navegar para a próxima página",
+            "reload": "Recarregar a página atual",
+            "closeTab": "Fechar o separador atual",
+            "newTab": "Abrir um novo separador",
+            "duplicateTab": "Duplicar o separador atual",
+            "reloadAllTabs": "Recarregar todos os separadores",
+            "reopenClosedTab": "Reabrir o último separador fechado"
         }
     }
 }
