@@ -31,58 +31,58 @@
             "fruit": "Vaisiai",
             "game": "Žaidimas",
             "gear": "Nustatymai",
-            "gift": "Gift",
-            "key": "Key",
-            "lightning": "Lightning",
-            "network": "Network",
-            "notes": "Notes",
-            "paint": "Paint",
-            "photo": "Photo",
-            "pin": "Pin",
-            "pet": "Pet",
-            "question": "Question",
-            "smartphone": "Smartphone",
-            "star": "Star",
-            "tree": "Tree",
-            "vacation": "Vacation",
-            "love": "Love",
-            "moon": "Moon",
-            "music": "Music",
-            "user": "User"
+            "gift": "Dovana",
+            "key": "Raktas",
+            "lightning": "Žaibas",
+            "network": "Tinklas",
+            "notes": "Užrašai",
+            "paint": "Dažai",
+            "photo": "Nuotrauka",
+            "pin": "Segtukas",
+            "pet": "Augintinis",
+            "question": "Klausimas",
+            "smartphone": "Išmanusis telefonas",
+            "star": "Žvaigždė",
+            "tree": "Medis",
+            "vacation": "Atostogos",
+            "love": "Meilė",
+            "moon": "Mėnulis",
+            "music": "Muzika",
+            "user": "Naudotojas"
         },
         "service": {
-            "new-workspace": "New Workspace ({{count}})"
+            "new-workspace": "Nauja darbo sritis ({{count}})"
         },
         "context-menu": {
-            "move-up": "Move this Workspace Up",
-            "move-down": "Move this Workspace Down",
-            "delete": "Delete Workspace",
-            "manage": "Manage Workspace"
+            "move-up": "Perkelti šią darbo sritį aukščiau",
+            "move-down": "Perkelti šią darbo sritį žemyn",
+            "delete": "Ištrinti darbo sritį",
+            "manage": "Tvarkyti darbo sritį"
         },
         "popup": {
-            "create-new": "Create New Workspace...",
-            "manage": "Manage Workspaces"
+            "create-new": "Kurti naują darbo sritį...",
+            "manage": "Tvarkyti darbo sritis"
         }
     },
     "statusbar": {
-        "toggle": "Status Bar{{mark}}"
+        "toggle": "Būsenos juosta{{mark}}"
     },
     "splitview": {
-        "title": "Split View",
+        "title": "Skaidymo rodinys",
         "position": "Position",
         "position-left": "Left",
         "position-right": "Right",
         "flex-row": "Row",
-        "flex-column": "Column",
-        "remove-button": "Remove Current View",
+        "flex-column": "Stulpelis",
+        "remove-button": "Šalinti dabartinį rodinį",
         "tab-context": {
-            "split-tabs": "Split Tabs",
+            "split-tabs": "Skaidyti korteles",
             "split-fixed-tab": "Split to Fixed Tab"
         }
     },
     "ssb": {
         "menu": {
-            "webapps": "Web Apps",
+            "webapps": "Interneto programos",
             "install-current": "Install Current Page as Progressive Web App",
             "open-installed": "Open Installed Apps"
         },
@@ -91,8 +91,8 @@
             "install": "Install Application",
             "open": "Open Application",
             "cancel": "Cancel",
-            "site-icon": "Site icon",
-            "installing": "Installing indicator"
+            "site-icon": "Svetainės piktograma",
+            "installing": "Diegimo indikatorius"
         }
     },
     "privateContainer": {
