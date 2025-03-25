@@ -36,11 +36,11 @@
         }
     },
     "finish": {
-        "title": "Setup Complete!",
+        "title": "Настройка завершена!",
         "subtitle": "Congratulations! You've completed the Floorp setup. Enjoy a comfortable and secure internet browsing experience.",
         "nextSteps": {
             "title": "Next Steps (Optional)",
-            "setDefault": "Set as Default Browser",
+            "setDefault": "Установить как браузер по умолчанию",
             "documentation": "Documentation"
         },
         "getStarted": "Get Started with Floorp",
