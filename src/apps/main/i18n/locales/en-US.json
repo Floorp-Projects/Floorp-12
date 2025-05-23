@@ -12,7 +12,9 @@
             "icon": "Icon",
             "edit-title": "Edit Workspace",
             "save": "Save Changes",
-            "cancel": "Cancel"
+            "cancel": "Cancel",
+            "deleteTitle": "Delete workspace",
+            "deleteText": "Please confirm to delete workspace: {{name}}"
         },
         "icons": {
             "article": "Article",
